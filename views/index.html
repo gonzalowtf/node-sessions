@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>UIT Tutorial - Sessions</title>
+        <title>Express - Sessions</title>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
         <script>
@@ -15,6 +15,10 @@
                 $.post("http://localhost:3000/sessions", {
                     email: email,
                     pass: password
+                },function(data){
+                    if(data === "yes"){
+                        location.href = "/views/page1.html";
+                    }
                 });
             });
         });

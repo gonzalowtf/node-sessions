@@ -7,11 +7,17 @@
 <body>
 	Page 2 
 	<br>
+	<a href="/views/page1.html">Page1</a> <br>
+	<a href="/logout">Log out</a>
 <script>
 	$(document).ready(function(){
                            
                 // Basic jQuery RESTFul API call
-                $.get("http://localhost:3000/sessions/page2");
+                $.get("http://localhost:3000/sessions/page2",function(data){
+                	if(data==='no'){
+                		location.href = "/views/index.html";
+                	}
+                });
            
         });
 </script>

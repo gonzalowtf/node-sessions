@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // set the default views folder
-app.set('views', __dirname + '/views');
+//app.set('views', __dirname + '/views');
+app.use('/views', express.static(__dirname + '/views'));
 app.engine('html', require('ejs').renderFile);
 var users = [
 		{
@@ -17,7 +18,6 @@ var users = [
 			password: "pass2"
 		}
 ];
-app.use('/views', express.static(__dirname + '/views'));
 
 // register the session with it's secret ID
 app.use(session({secret: 'uitisawesome'}));
@@ -47,7 +47,7 @@ app.post('/sessions',function(req,res){
 				req.session.email = req.body.email;
 				req.session.password = req.body.pass;
 				console.log(req.session);
-				res.render('page1.html');
+				res.end('yes');
 				
 				}
 			}
@@ -76,7 +76,7 @@ app.get('/sessions/:page',function(req,res){
 	}
 	else {
 		console.log("index");
-	    res.render('index.html');
+	    res.end('no');
 	    	    
 	}
 			
@@ -93,6 +93,7 @@ app.get('/logout',function(req,res){
 		if(err) {
 			console.log(err);
 		} else {
+			console.log("logged out")
 			res.redirect('/');
 		}
 	});

@@ -9,11 +9,17 @@
 <body>
 	Page 1 
 	<br>
+	<a href="/views/page2.html">Page2</a> <br>
+	<a href="/logout">Log out</a>
 <script>
 	$(document).ready(function(){
                            
                 // Basic jQuery RESTFul API call
-                $.get("http://localhost:3000/sessions/page1");
+                $.get("http://localhost:3000/sessions/page1",function(data){
+                	if(data==='no'){
+                		location.href = "/views/index.html";
+                	}
+                });
            
         });
 </script>
