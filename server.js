@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // set the default views folder
-//app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/views');
 app.use('/views', express.static(__dirname + '/views'));
 app.engine('html', require('ejs').renderFile);
 var users = [
@@ -99,7 +99,7 @@ app.get('/logout',function(req,res){
 	});
 
 });
-
-app.listen(3000,function(){
+var port = process.env.PORT || 3000;
+app.listen(port,function(){
 	console.log("App Started on port 3000");
 });
