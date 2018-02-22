@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>UIT Tutorial - Sessions</title>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+        <script>
+        $(document).ready(function(){
+            var email, password;
+
+            $("#submit").click(function(){
+                email = $("#email").val();
+                password = $("#password").val();
+                
+                // Basic jQuery RESTFul API call
+                $.post("http://localhost:3000/sessions", {
+                    email: email,
+                    pass: password
+                });
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <input type="text" size="40" placeholder="Type your email" id="email"><br />
+        <input type="password" size="40" placeholder="Type your password" id="password"><br />
+        <input type="button" value="Submit" id="submit">
+    </body>
+</html>
