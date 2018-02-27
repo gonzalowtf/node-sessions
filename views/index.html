@@ -12,7 +12,7 @@
                 password = $("#password").val();
                 
                 // Basic jQuery RESTFul API call
-                $.post("http://localhost:3000/sessions", {
+                $.post("/sessions", {
                     email: email,
                     pass: password
                 },function(data){

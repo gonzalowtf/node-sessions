@@ -25,30 +25,12 @@ var users = [
 
 // register the session with it's secret ID
 	app.use(session({
-			secret: "asdasdaasdmkamskdmakmskdmsdnan7868767868767867sd",
-              resave: false,
-              saveUninitialized:false,
-              store : new MongoStore({
-                mongooseConnection : mongoose.connection
-              }),
-              cookie:{maxAge: 867400}
+			secret: "asdasdaasdmkamskdmakmskdmsdnan7868767868767867sd"
+             
 
 		}));
 
 
-var url2 = "mongodb://hutter:cancer29@ds119476.mlab.com:19476/datahigieneyseguridad";
-
-
-mongoose.connect(url2, { useMongoClient: true });
-
-
-let db = mongoose.connection;
-db.once('open',function(){
-  console.log('Connection successfull');
-});
-db.on('error',function(err){
-  console.log(err);
-});
 
 // register the bodyParser middleware for processing forms
 app.use(bodyParser.json());

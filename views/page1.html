@@ -15,7 +15,7 @@
 	$(document).ready(function(){
                            
                 // Basic jQuery RESTFul API call
-                $.get("http://localhost:3000/sessions/page1",function(data){
+                $.get("/sessions/page1",function(data){
                 	if(data==='no'){
                 		location.href = "/views/index.html";
                 	}
